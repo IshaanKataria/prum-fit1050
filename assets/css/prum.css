@@ -550,18 +550,19 @@ button.prum-btn-secondary {
 
 /* -------- why / stats -------- */
 
-.prum-why {
+#wrapper > .wrapper.style1.prum-why {
 	background: var(--prum-burgundy-deep) !important;
 	color: var(--prum-bg-card);
 }
 
 .prum-why h2,
 .prum-why .prum-eyebrow {
-	color: var(--prum-gold-soft);
+	color: var(--prum-gold-soft) !important;
 }
 
+.prum-why p,
 .prum-why .prum-section-lede {
-	color: rgba(251, 246, 236, 0.78);
+	color: rgba(251, 246, 236, 0.85) !important;
 }
 
 .prum-stats {
