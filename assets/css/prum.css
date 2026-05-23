@@ -603,16 +603,20 @@ button.prum-btn-secondary {
 	position: absolute;
 	top: 1rem;
 	right: 1rem;
-	width: 38px;
-	height: 38px;
-	background: transparent;
-	border: 1px solid var(--line);
-	border-radius: 50%;
-	color: var(--burgundy);
-	font-size: 1.4rem;
+	width: 38px !important;
+	height: 38px !important;
+	min-width: 0 !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border: 1px solid var(--line) !important;
+	border-radius: 50% !important;
+	color: var(--burgundy) !important;
+	font-size: 1.4rem !important;
+	line-height: 1 !important;
 	cursor: pointer;
-	display: grid;
+	display: grid !important;
 	place-items: center;
+	box-shadow: none !important;
 }
 
 .prum-modal-close:hover {
