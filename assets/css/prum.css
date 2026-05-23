@@ -1,50 +1,46 @@
-/* PRUM custom theme on top of Story by HTML5 UP
-   Author: Ishaan Kataria, FIT1050 Assignment 3
-   Palette: burgundy + cream + gold
-   Type: Cormorant Garamond (display) + Inter (body) */
+/* prum.css
+   Custom theme for the PRUM homepage on top of Story by HTML5 UP.
+   Palette: deep burgundy + cream + gold.
+   Headings use Cormorant Garamond (serif), body uses Inter (sans-serif).
+*/
 
+/* All the colours, fonts and spacing tokens live up here as CSS custom
+   properties so I only have to change them in one place if I want to
+   tweak the design later. */
 :root {
-	--prum-bg: #f5efe6;
-	--prum-bg-card: #fbf6ec;
-	--prum-ink: #2b1d1a;
-	--prum-ink-soft: #5a4b46;
-	--prum-burgundy: #5c1f1f;
-	--prum-burgundy-deep: #3e1414;
-	--prum-burgundy-hover: #7a2a2a;
-	--prum-gold: #c9a961;
-	--prum-gold-soft: #e6d28b;
-	--prum-line: rgba(92, 31, 31, 0.18);
-	--prum-shadow: 0 12px 32px rgba(62, 20, 20, 0.12);
-	--prum-shadow-lift: 0 18px 44px rgba(62, 20, 20, 0.18);
-	--prum-radius: 14px;
-	--prum-radius-sm: 8px;
-	--prum-radius-lg: 22px;
-	--prum-serif: 'Cormorant Garamond', 'Garamond', 'Georgia', serif;
-	--prum-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-	--prum-nav-h: 72px;
+	--bg: #f5efe6;
+	--bg-card: #fbf6ec;
+	--ink: #2b1d1a;
+	--ink-soft: #5a4b46;
+	--burgundy: #5c1f1f;
+	--burgundy-deep: #3e1414;
+	--burgundy-hover: #7a2a2a;
+	--gold: #c9a961;
+	--gold-soft: #e6d28b;
+	--line: rgba(92, 31, 31, 0.18);
+	--shadow: 0 12px 32px rgba(62, 20, 20, 0.12);
+	--shadow-lift: 0 18px 44px rgba(62, 20, 20, 0.18);
+	--radius: 14px;
+	--radius-sm: 8px;
+	--serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+	--sans: 'Inter', system-ui, Helvetica, Arial, sans-serif;
+	--nav-h: 72px;
 }
 
-/* -------- base overrides -------- */
+/* Smooth in-page scrolling for the sticky nav anchor links. */
+html { scroll-behavior: smooth; }
 
 html, body {
-	background: var(--prum-bg) !important;
-	color: var(--prum-ink);
-	font-family: var(--prum-sans);
+	background: var(--bg) !important;
+	color: var(--ink);
+	font-family: var(--sans);
 	font-size: 17px;
 	line-height: 1.65;
 }
 
-body {
-	background:
-		radial-gradient(1200px 600px at 80% -10%, rgba(201, 169, 97, 0.12), transparent 60%),
-		radial-gradient(900px 500px at -10% 30%, rgba(92, 31, 31, 0.08), transparent 60%),
-		var(--prum-bg) !important;
-}
-
 h1, h2, h3, h4, h5, h6 {
-	font-family: var(--prum-serif);
-	color: var(--prum-burgundy-deep);
-	letter-spacing: -0.01em;
+	font-family: var(--serif);
+	color: var(--burgundy-deep);
 	line-height: 1.12;
 	font-weight: 600;
 }
@@ -53,52 +49,45 @@ h1 { font-size: 4.2rem; }
 h2 { font-size: 2.8rem; margin-bottom: 0.6em; }
 h3 { font-size: 1.55rem; margin-bottom: 0.4em; }
 
-p { color: var(--prum-ink); }
+p { color: var(--ink); }
 
 a {
-	color: var(--prum-burgundy);
+	color: var(--burgundy);
 	text-decoration: underline;
-	text-decoration-thickness: 1px;
 	text-underline-offset: 3px;
-	transition: color 160ms ease;
 }
+a:hover { color: var(--burgundy-hover); }
 
-a:hover { color: var(--prum-burgundy-hover); }
-
-::selection { background: var(--prum-gold-soft); color: var(--prum-burgundy-deep); }
-
-/* override wrapper backgrounds */
-#wrapper > .wrapper.style1 { background: transparent !important; color: var(--prum-ink); }
+/* The Story template paints wrapper backgrounds itself. Strip those so
+   our own background shows through. */
+#wrapper > .wrapper.style1 { background: transparent !important; color: var(--ink); }
 #wrapper > .wrapper { padding: 6.5rem 0 6rem; }
 #wrapper > .wrapper > .inner { max-width: 1280px; padding: 0 3rem; }
 
-/* divider lines between sections */
 #wrapper.divided > * + * {
-	border-top: 1px solid var(--prum-line);
+	border-top: 1px solid var(--line);
 }
 
-/* -------- nav -------- */
+
+/* ---------- top navigation ---------- */
 
 .prum-nav {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	height: var(--prum-nav-h);
+	height: var(--nav-h);
 	z-index: 1000;
-	background: rgba(245, 239, 230, 0.86);
-	backdrop-filter: blur(14px);
-	-webkit-backdrop-filter: blur(14px);
-	border-bottom: 1px solid var(--prum-line);
-	transition: background 200ms ease, box-shadow 200ms ease;
+	background: rgba(245, 239, 230, 0.92);
+	border-bottom: 1px solid var(--line);
 }
 
 .prum-nav.is-scrolled {
-	background: rgba(245, 239, 230, 0.96);
+	background: rgba(245, 239, 230, 0.98);
 	box-shadow: 0 6px 18px rgba(62, 20, 20, 0.08);
 }
 
-.prum-nav__inner {
+.prum-nav-inner {
 	max-width: 1280px;
 	height: 100%;
 	margin: 0 auto;
@@ -108,115 +97,91 @@ a:hover { color: var(--prum-burgundy-hover); }
 	justify-content: space-between;
 }
 
-.prum-nav__logo {
+.prum-nav-logo {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.65rem;
 	text-decoration: none !important;
-	color: var(--prum-burgundy-deep);
+	color: var(--burgundy-deep);
 }
 
-.prum-nav__logo-mark {
+.prum-nav-logo-mark {
 	width: 38px;
 	height: 38px;
 	display: grid;
 	place-items: center;
-	background: var(--prum-burgundy);
-	color: var(--prum-bg-card);
-	font-family: var(--prum-serif);
+	background: var(--burgundy);
+	color: var(--bg-card);
+	font-family: var(--serif);
 	font-size: 1.4rem;
 	font-weight: 700;
 	border-radius: 50%;
-	box-shadow: inset 0 0 0 2px var(--prum-gold);
+	box-shadow: inset 0 0 0 2px var(--gold);
 }
 
-.prum-nav__logo-text {
-	font-family: var(--prum-serif);
+.prum-nav-logo-text {
+	font-family: var(--serif);
 	font-size: 1.5rem;
 	font-weight: 700;
 	letter-spacing: 0.04em;
 }
 
-.prum-nav__links {
+.prum-nav-links {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	display: flex;
 	gap: 2rem;
-	align-items: center;
 }
 
-.prum-nav__links a {
-	font-family: var(--prum-sans);
+.prum-nav-links a {
 	font-size: 0.95rem;
 	font-weight: 500;
-	color: var(--prum-ink);
+	color: var(--ink);
 	text-decoration: none !important;
 	padding: 0.5rem 0.2rem;
 	border-bottom: 2px solid transparent;
-	transition: color 160ms ease, border-color 160ms ease;
 }
 
-.prum-nav__links a:hover,
-.prum-nav__links a:focus-visible {
-	color: var(--prum-burgundy);
-	border-bottom-color: var(--prum-gold);
-	outline: none;
+.prum-nav-links a:hover,
+.prum-nav-links a:focus {
+	color: var(--burgundy);
+	border-bottom-color: var(--gold);
 }
 
-.prum-nav__cta {
-	background: var(--prum-burgundy);
-	color: var(--prum-bg-card) !important;
+.prum-nav-cta {
+	background: var(--burgundy);
+	color: var(--bg-card) !important;
 	padding: 0.55rem 1.15rem !important;
 	border-radius: 999px;
 	border-bottom: none !important;
-	box-shadow: 0 2px 0 var(--prum-burgundy-deep);
-	transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
 
-.prum-nav__cta:hover {
-	background: var(--prum-burgundy-hover) !important;
-	transform: translateY(-1px);
-	border-bottom-color: transparent !important;
+.prum-nav-cta:hover {
+	background: var(--burgundy-hover) !important;
 }
 
-/* push first section below fixed nav */
-.prum-hero { padding-top: var(--prum-nav-h); }
 
-/* -------- hero -------- */
+/* ---------- hero ---------- */
 
-.prum-hero .content {
-	padding: 0 4rem !important;
-}
+.prum-hero { padding-top: var(--nav-h); background: var(--burgundy-deep) !important; }
 
-.prum-hero .content > * {
-	color: var(--prum-bg-card);
-}
-
-.prum-hero {
-	background: var(--prum-burgundy-deep) !important;
-}
-
-.prum-hero .image::after {
-	background: linear-gradient(120deg, rgba(62, 20, 20, 0.85) 0%, rgba(62, 20, 20, 0.25) 55%, transparent 100%) !important;
-}
+.prum-hero .content { padding: 0 4rem !important; }
+.prum-hero .content > * { color: var(--bg-card); }
 
 .prum-hero h1 {
-	color: var(--prum-bg-card);
+	color: var(--bg-card);
 	font-size: 5.2rem;
 	margin: 0.3em 0 0.6em;
-	line-height: 1.02;
-	text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
-.prum-hero__eyebrow {
+.prum-hero-eyebrow {
 	display: inline-block;
-	font-family: var(--prum-sans);
 	font-size: 0.82rem;
 	font-weight: 600;
 	letter-spacing: 0.18em;
 	text-transform: uppercase;
-	color: var(--prum-gold-soft) !important;
+	color: var(--gold-soft) !important;
 	padding: 0.3rem 0.85rem;
 	border: 1px solid rgba(201, 169, 97, 0.55);
 	border-radius: 999px;
@@ -226,105 +191,84 @@ a:hover { color: var(--prum-burgundy-hover); }
 	font-size: 1.3rem;
 	color: rgba(251, 246, 236, 0.92) !important;
 	max-width: 32rem;
-	border-color: rgba(251, 246, 236, 0.35);
 }
 
-/* -------- eyebrows on other sections -------- */
+
+/* ---------- shared bits ---------- */
 
 .prum-eyebrow {
 	display: inline-block;
-	font-family: var(--prum-sans);
 	font-size: 0.78rem;
 	font-weight: 600;
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
-	color: var(--prum-burgundy);
+	color: var(--burgundy);
 	margin-bottom: 0.85rem;
 }
 
 .prum-section-lede {
 	max-width: 44rem;
 	margin: 0 auto 2.6rem;
-	color: var(--prum-ink-soft);
+	color: var(--ink-soft);
 	font-size: 1.08rem;
 }
 
-/* -------- about -------- */
 
-.prum-about {
-	min-height: 68vh;
-}
+/* ---------- about (spotlight section) ---------- */
 
-.prum-about .content {
-	padding: 0 4rem !important;
-}
-
+.prum-about { min-height: 68vh; }
+.prum-about .content { padding: 0 4rem !important; }
 .prum-about h2 { font-size: 3.2rem; }
-
 .prum-about .image,
-.prum-about .image img {
-	min-height: 68vh;
-}
+.prum-about .image img { min-height: 68vh; }
 
-/* -------- buttons -------- */
+
+/* ---------- buttons ---------- */
 
 .button.prum-btn-primary,
 button.prum-btn-primary {
-	background: var(--prum-burgundy) !important;
-	color: var(--prum-bg-card) !important;
-	box-shadow: inset 0 0 0 0 transparent, 0 4px 0 var(--prum-burgundy-deep) !important;
+	background: var(--burgundy) !important;
+	color: var(--bg-card) !important;
 	border-radius: 999px !important;
 	padding: 0 1.6rem !important;
 	font-weight: 600 !important;
-	letter-spacing: 0.04em !important;
 	border: none !important;
-	transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
-
 .button.prum-btn-primary:hover {
-	background: var(--prum-burgundy-hover) !important;
-	transform: translateY(-2px);
-	box-shadow: 0 6px 0 var(--prum-burgundy-deep) !important;
+	background: var(--burgundy-hover) !important;
 }
 
 .button.prum-btn-secondary,
 button.prum-btn-secondary {
 	background: transparent !important;
-	color: var(--prum-burgundy) !important;
-	box-shadow: inset 0 0 0 2px var(--prum-burgundy) !important;
+	color: var(--burgundy) !important;
+	box-shadow: inset 0 0 0 2px var(--burgundy) !important;
 	border-radius: 999px !important;
 	padding: 0 1.6rem !important;
 	font-weight: 600 !important;
-	letter-spacing: 0.04em !important;
 	border: none !important;
-	transition: transform 160ms ease, background 160ms ease, color 160ms ease;
 }
-
 .button.prum-btn-secondary:hover {
-	background: var(--prum-burgundy) !important;
-	color: var(--prum-bg-card) !important;
-	transform: translateY(-2px);
+	background: var(--burgundy) !important;
+	color: var(--bg-card) !important;
 }
 
-/* hero buttons larger */
 .prum-hero .button.big {
 	height: 3.6rem !important;
 	line-height: 3.6rem !important;
 	font-size: 0.95rem !important;
 }
-
 .prum-hero .button.prum-btn-secondary {
-	color: var(--prum-bg-card) !important;
-	box-shadow: inset 0 0 0 2px var(--prum-gold-soft) !important;
+	color: var(--bg-card) !important;
+	box-shadow: inset 0 0 0 2px var(--gold-soft) !important;
 }
-
 .prum-hero .button.prum-btn-secondary:hover {
-	background: var(--prum-gold) !important;
-	color: var(--prum-burgundy-deep) !important;
-	box-shadow: inset 0 0 0 2px var(--prum-gold) !important;
+	background: var(--gold) !important;
+	color: var(--burgundy-deep) !important;
 }
 
-/* -------- activity cards -------- */
+
+/* ---------- "three ways to roll" activity cards ---------- */
 
 .prum-cards {
 	display: grid;
@@ -335,48 +279,40 @@ button.prum-btn-secondary {
 }
 
 .prum-card {
-	background: var(--prum-bg-card);
-	border: 1px solid var(--prum-line);
-	border-radius: var(--prum-radius);
+	background: var(--bg-card);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
 	padding: 2.2rem 1.8rem;
-	box-shadow: var(--prum-shadow);
-	transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+	box-shadow: var(--shadow);
 }
 
 .prum-card:hover {
-	transform: translateY(-4px);
-	box-shadow: var(--prum-shadow-lift);
-	border-color: var(--prum-gold);
+	border-color: var(--gold);
+	box-shadow: var(--shadow-lift);
 }
 
-.prum-card__icon {
+.prum-card-icon {
 	width: 56px;
 	height: 56px;
-	color: var(--prum-burgundy);
+	color: var(--burgundy);
 	margin-bottom: 1.3rem;
 }
+.prum-card-icon svg { width: 100%; height: 100%; }
 
-.prum-card__icon svg { width: 100%; height: 100%; }
+.prum-card h3 { color: var(--burgundy-deep); margin-bottom: 0.6rem; }
+.prum-card p { font-size: 1rem; color: var(--ink-soft); }
 
-.prum-card h3 {
-	color: var(--prum-burgundy-deep);
-	margin-bottom: 0.6rem;
-}
-
-.prum-card p { font-size: 1rem; color: var(--prum-ink-soft); }
-
-.prum-card__meta {
-	font-family: var(--prum-sans);
+.prum-card-meta {
 	font-size: 0.85rem !important;
-	color: var(--prum-burgundy) !important;
+	color: var(--burgundy) !important;
 	font-weight: 600;
-	letter-spacing: 0.04em;
 	margin-top: 1rem !important;
 	padding-top: 1rem;
-	border-top: 1px solid var(--prum-line);
+	border-top: 1px solid var(--line);
 }
 
-/* -------- events: filter + grid -------- */
+
+/* ---------- events: filter chips and grid ---------- */
 
 .prum-filter {
 	display: flex;
@@ -386,54 +322,31 @@ button.prum-btn-secondary {
 	margin: 0 0 2.4rem;
 }
 
-.prum-filter__chip {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.5rem;
-	font-family: var(--prum-sans);
+.prum-filter-chip {
 	font-size: 0.92rem;
 	font-weight: 500;
-	color: var(--prum-burgundy);
+	color: var(--burgundy);
 	background: transparent;
-	border: 1.5px solid var(--prum-line);
+	border: 1.5px solid var(--line);
 	padding: 0.55rem 1.15rem;
 	border-radius: 999px;
 	cursor: pointer;
-	transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 120ms ease;
 }
 
-.prum-filter__chip:hover {
-	border-color: var(--prum-burgundy);
-	color: var(--prum-burgundy-deep);
+.prum-filter-chip:hover {
+	border-color: var(--burgundy);
+	color: var(--burgundy-deep);
 }
 
-.prum-filter__chip:focus-visible {
-	outline: 3px solid var(--prum-gold);
+.prum-filter-chip:focus {
+	outline: 3px solid var(--gold);
 	outline-offset: 2px;
 }
 
-.prum-filter__chip.is-active {
-	background: var(--prum-burgundy);
-	color: var(--prum-bg-card);
-	border-color: var(--prum-burgundy);
-}
-
-.prum-filter__count {
-	display: inline-grid;
-	place-items: center;
-	min-width: 1.7rem;
-	height: 1.4rem;
-	padding: 0 0.4rem;
-	font-size: 0.78rem;
-	font-weight: 600;
-	background: rgba(92, 31, 31, 0.1);
-	color: var(--prum-burgundy);
-	border-radius: 999px;
-}
-
-.prum-filter__chip.is-active .prum-filter__count {
-	background: rgba(251, 246, 236, 0.18);
-	color: var(--prum-bg-card);
+.prum-filter-chip.is-active {
+	background: var(--burgundy);
+	color: var(--bg-card);
+	border-color: var(--burgundy);
 }
 
 .prum-event-grid {
@@ -444,96 +357,80 @@ button.prum-btn-secondary {
 }
 
 .prum-event {
-	background: var(--prum-bg-card);
-	border: 1px solid var(--prum-line);
-	border-radius: var(--prum-radius);
+	background: var(--bg-card);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
 	overflow: hidden;
 	cursor: pointer;
-	box-shadow: var(--prum-shadow);
-	transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, opacity 220ms ease;
+	box-shadow: var(--shadow);
 }
 
 .prum-event:hover,
-.prum-event:focus-visible {
-	transform: translateY(-4px);
-	box-shadow: var(--prum-shadow-lift);
-	border-color: var(--prum-gold);
+.prum-event:focus {
+	border-color: var(--gold);
+	box-shadow: var(--shadow-lift);
 	outline: none;
 }
 
-.prum-event:focus-visible {
-	outline: 3px solid var(--prum-gold);
+.prum-event:focus {
+	outline: 3px solid var(--gold);
 	outline-offset: 3px;
 }
 
 .prum-event[hidden] { display: none !important; }
 
-.prum-event.is-fading {
-	opacity: 0;
-	transform: translateY(8px);
-}
-
-.prum-event__media {
+.prum-event-media {
 	position: relative;
-	aspect-ratio: 16 / 9;
+	height: 200px;
 	overflow: hidden;
-	background: var(--prum-burgundy-deep);
+	background: var(--burgundy-deep);
 }
 
-.prum-event__media img {
+.prum-event-media img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	transition: transform 400ms ease;
 }
 
-.prum-event:hover .prum-event__media img { transform: scale(1.04); }
-
-.prum-event__tag {
+.prum-event-tag {
 	position: absolute;
 	top: 0.9rem;
 	left: 0.9rem;
-	font-family: var(--prum-sans);
 	font-size: 0.72rem;
 	font-weight: 700;
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
-	background: var(--prum-bg-card);
-	color: var(--prum-burgundy);
+	background: var(--bg-card);
+	color: var(--burgundy);
 	padding: 0.3rem 0.7rem;
 	border-radius: 999px;
-	box-shadow: 0 2px 8px rgba(62, 20, 20, 0.18);
 }
 
-.prum-event__body {
-	padding: 1.4rem 1.4rem 1.6rem;
-}
+.prum-event-body { padding: 1.4rem 1.4rem 1.6rem; }
 
-.prum-event__date {
-	font-family: var(--prum-sans);
+.prum-event-date {
 	font-size: 0.85rem;
 	font-weight: 600;
-	color: var(--prum-burgundy);
-	letter-spacing: 0.04em;
+	color: var(--burgundy);
 	margin: 0 0 0.45rem !important;
 }
 
-.prum-event__body h3 {
+.prum-event-body h3 {
 	font-size: 1.4rem;
 	margin: 0 0 0.6rem;
-	color: var(--prum-burgundy-deep);
+	color: var(--burgundy-deep);
 }
 
-.prum-event__body p {
+.prum-event-body p {
 	font-size: 0.97rem;
-	color: var(--prum-ink-soft);
+	color: var(--ink-soft);
 	margin: 0 0 0.7rem !important;
 }
 
-.prum-event__meta {
+.prum-event-meta {
 	font-size: 0.85rem !important;
-	color: var(--prum-ink-soft) !important;
-	border-top: 1px solid var(--prum-line);
+	color: var(--ink-soft) !important;
+	border-top: 1px solid var(--line);
 	padding-top: 0.75rem;
 	margin-top: 0.85rem !important;
 }
@@ -541,23 +438,24 @@ button.prum-btn-secondary {
 .prum-empty {
 	text-align: center;
 	font-style: italic;
-	color: var(--prum-ink-soft);
+	color: var(--ink-soft);
 	padding: 2.5rem 1rem;
 	background: rgba(201, 169, 97, 0.08);
-	border-radius: var(--prum-radius);
-	border: 1px dashed var(--prum-line);
+	border-radius: var(--radius);
+	border: 1px dashed var(--line);
 }
 
-/* -------- why / stats -------- */
+
+/* ---------- "why prum" section, dark band ---------- */
 
 #wrapper > .wrapper.style1.prum-why {
-	background: var(--prum-burgundy-deep) !important;
-	color: var(--prum-bg-card);
+	background: var(--burgundy-deep) !important;
+	color: var(--bg-card);
 }
 
 .prum-why h2,
 .prum-why .prum-eyebrow {
-	color: var(--prum-gold-soft) !important;
+	color: var(--gold-soft) !important;
 }
 
 .prum-why p,
@@ -576,20 +474,19 @@ button.prum-btn-secondary {
 	display: grid;
 	gap: 0.4rem;
 	padding: 1.6rem 1rem;
-	border-left: 2px solid var(--prum-gold);
+	border-left: 2px solid var(--gold);
 	text-align: left;
 }
 
-.prum-stat__value {
-	font-family: var(--prum-serif);
+.prum-stat-value {
+	font-family: var(--serif);
 	font-size: 3.6rem;
 	font-weight: 600;
-	color: var(--prum-gold-soft);
+	color: var(--gold-soft);
 	line-height: 1;
 }
 
-.prum-stat__label {
-	font-family: var(--prum-sans);
+.prum-stat-label {
 	font-size: 0.82rem;
 	font-weight: 600;
 	letter-spacing: 0.16em;
@@ -597,53 +494,51 @@ button.prum-btn-secondary {
 	color: rgba(251, 246, 236, 0.78);
 }
 
-/* -------- join form -------- */
+
+/* ---------- join form ---------- */
 
 .prum-join .inner.medium { max-width: 720px !important; }
 
 .prum-form { text-align: left; }
 
 .prum-form label {
-	font-family: var(--prum-sans);
 	font-size: 0.85rem;
 	font-weight: 600;
-	color: var(--prum-ink);
-	letter-spacing: 0.04em;
+	color: var(--ink);
 }
 
 .prum-form input,
 .prum-form textarea,
 .prum-form select {
-	background: var(--prum-bg-card) !important;
-	border: 1px solid var(--prum-line) !important;
-	border-radius: var(--prum-radius-sm) !important;
-	color: var(--prum-ink) !important;
-	font-family: var(--prum-sans) !important;
+	background: var(--bg-card) !important;
+	border: 1px solid var(--line) !important;
+	border-radius: var(--radius-sm) !important;
+	color: var(--ink) !important;
 }
 
 .prum-form input:focus,
 .prum-form textarea:focus,
 .prum-form select:focus {
-	border-color: var(--prum-burgundy) !important;
+	border-color: var(--burgundy) !important;
 	box-shadow: 0 0 0 4px rgba(92, 31, 31, 0.12) !important;
 }
 
 .prum-form .actions { justify-content: center; }
 
-/* -------- footer -------- */
+
+/* ---------- footer ---------- */
 
 .prum-footer {
-	background: var(--prum-burgundy-deep) !important;
+	background: var(--burgundy-deep) !important;
 	color: rgba(251, 246, 236, 0.78);
 	padding: 4rem 0 3rem !important;
 }
 
-.prum-footer__mark {
-	font-family: var(--prum-serif);
+.prum-footer-mark {
+	font-family: var(--serif);
 	font-size: 1.4rem;
 	font-weight: 600;
-	color: var(--prum-gold-soft);
-	letter-spacing: 0.04em;
+	color: var(--gold-soft);
 	margin-bottom: 1.4rem !important;
 }
 
@@ -653,27 +548,27 @@ button.prum-btn-secondary {
 }
 
 .prum-footer .icons a:hover {
-	color: var(--prum-gold-soft) !important;
-	border-color: var(--prum-gold-soft) !important;
+	color: var(--gold-soft) !important;
+	border-color: var(--gold-soft) !important;
 }
 
-.prum-footer__contact {
+.prum-footer-contact {
 	font-size: 0.9rem;
 	color: rgba(251, 246, 236, 0.7);
 	margin: 1.2rem 0 0.6rem !important;
 }
 
-.prum-footer__small {
+.prum-footer-small {
 	font-size: 0.78rem;
 	color: rgba(251, 246, 236, 0.5);
 }
-
-.prum-footer__small a {
-	color: var(--prum-gold-soft);
+.prum-footer-small a {
+	color: var(--gold-soft);
 	text-decoration: underline;
 }
 
-/* -------- modal -------- */
+
+/* ---------- modal ---------- */
 
 .prum-modal {
 	position: fixed;
@@ -682,156 +577,118 @@ button.prum-btn-secondary {
 	display: grid;
 	place-items: center;
 	padding: 2rem;
-	animation: prum-modal-fade 200ms ease both;
 }
 
 .prum-modal[hidden] { display: none; }
 
-.prum-modal__backdrop {
+.prum-modal-backdrop {
 	position: absolute;
 	inset: 0;
-	background: rgba(43, 29, 26, 0.62);
-	backdrop-filter: blur(6px);
-	-webkit-backdrop-filter: blur(6px);
+	background: rgba(43, 29, 26, 0.72);
 }
 
-.prum-modal__panel {
+.prum-modal-panel {
 	position: relative;
 	max-width: 620px;
 	width: 100%;
-	background: var(--prum-bg-card);
-	border-radius: var(--prum-radius-lg);
+	background: var(--bg-card);
+	border-radius: 22px;
 	padding: 2.6rem 2.4rem 2.4rem;
 	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 	max-height: 86vh;
 	overflow-y: auto;
-	animation: prum-modal-rise 220ms cubic-bezier(0.21, 0.62, 0.34, 1) both;
 }
 
-.prum-modal__close {
+.prum-modal-close {
 	position: absolute;
 	top: 1rem;
 	right: 1rem;
 	width: 38px;
 	height: 38px;
 	background: transparent;
-	border: 1px solid var(--prum-line);
+	border: 1px solid var(--line);
 	border-radius: 50%;
-	color: var(--prum-burgundy);
+	color: var(--burgundy);
 	font-size: 1.4rem;
-	line-height: 1;
 	cursor: pointer;
 	display: grid;
 	place-items: center;
-	padding: 0;
-	transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
-.prum-modal__close:hover {
-	background: var(--prum-burgundy);
-	color: var(--prum-bg-card);
-	transform: rotate(90deg);
+.prum-modal-close:hover {
+	background: var(--burgundy);
+	color: var(--bg-card);
 }
 
-.prum-modal__close:focus-visible {
-	outline: 3px solid var(--prum-gold);
+.prum-modal-close:focus {
+	outline: 3px solid var(--gold);
 	outline-offset: 2px;
 }
 
-.prum-modal__tag {
+.prum-modal-tag {
 	display: inline-block;
-	font-family: var(--prum-sans);
 	font-size: 0.72rem;
 	font-weight: 700;
 	letter-spacing: 0.16em;
 	text-transform: uppercase;
-	color: var(--prum-burgundy);
+	color: var(--burgundy);
 	background: rgba(92, 31, 31, 0.08);
 	padding: 0.3rem 0.8rem;
 	border-radius: 999px;
 	margin: 0 0 1rem;
 }
 
-.prum-modal__panel h2 {
-	font-size: 2.2rem;
-	margin: 0 0 0.4rem;
-}
+.prum-modal-panel h2 { font-size: 2.2rem; margin: 0 0 0.4rem; }
 
-.prum-modal__date {
-	font-family: var(--prum-sans);
+.prum-modal-date {
 	font-size: 0.95rem;
 	font-weight: 600;
-	color: var(--prum-burgundy);
+	color: var(--burgundy);
 	margin: 0 0 0.3rem !important;
 }
 
-.prum-modal__location {
+.prum-modal-location {
 	font-size: 0.95rem;
-	color: var(--prum-ink-soft);
+	color: var(--ink-soft);
 	margin: 0 0 1.4rem !important;
 }
 
-.prum-modal__brief {
+.prum-modal-brief {
 	font-size: 1.02rem;
-	color: var(--prum-ink);
+	color: var(--ink);
 	margin: 0 0 1.4rem;
 }
 
-.prum-modal__facts {
+.prum-modal-facts {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 0.6rem 1.4rem;
 	margin: 0 0 1.6rem;
 	padding: 1.1rem 1.2rem;
 	background: rgba(201, 169, 97, 0.1);
-	border-radius: var(--prum-radius-sm);
+	border-radius: var(--radius-sm);
 	border: 1px solid rgba(201, 169, 97, 0.3);
 }
 
-.prum-modal__facts dt {
-	font-family: var(--prum-sans);
+.prum-modal-facts dt {
 	font-size: 0.72rem;
 	font-weight: 700;
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
-	color: var(--prum-burgundy);
+	color: var(--burgundy);
 }
 
-.prum-modal__facts dd {
+.prum-modal-facts dd {
 	font-size: 0.95rem;
-	color: var(--prum-ink);
+	color: var(--ink);
 	margin: 0 0 0.6rem;
 }
 
-.prum-modal__actions {
+.prum-modal-actions {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.8rem;
 }
 
-@keyframes prum-modal-fade {
-	from { opacity: 0; }
-	to { opacity: 1; }
-}
-
-@keyframes prum-modal-rise {
-	from { opacity: 0; transform: translateY(20px) scale(0.96); }
-	to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* lock body scroll when modal open */
+/* Stop the page behind from scrolling while the modal is open. */
 body.prum-modal-open { overflow: hidden; }
-
-/* -------- preserve template's preload behaviour for desktop only -------- */
-
-@media (max-width: 980px) {
-	/* this site is desktop-only per the assignment brief.
-	   minimal stacking so the page does not break entirely if a viewport
-	   shrinks during marking, but mobile is explicitly out of scope. */
-	.prum-nav__links { gap: 1rem; }
-	.prum-cards,
-	.prum-event-grid,
-	.prum-stats {
-		grid-template-columns: 1fr;
-	}
-}

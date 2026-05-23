@@ -16,18 +16,18 @@
 	<body class="is-preload">
 
 		<header class="prum-nav" id="top">
-			<div class="prum-nav__inner">
-				<a href="#top" class="prum-nav__logo" aria-label="PRUM home">
-					<span class="prum-nav__logo-mark" aria-hidden="true">P</span>
-					<span class="prum-nav__logo-text">PRUM</span>
+			<div class="prum-nav-inner">
+				<a href="#top" class="prum-nav-logo" aria-label="PRUM home">
+					<span class="prum-nav-logo-mark" aria-hidden="true">P</span>
+					<span class="prum-nav-logo-text">PRUM</span>
 				</a>
 				<nav aria-label="Primary navigation">
-					<ul class="prum-nav__links">
+					<ul class="prum-nav-links">
 						<li><a href="#about">About</a></li>
 						<li><a href="#play">What We Play</a></li>
 						<li><a href="#events">Events</a></li>
 						<li><a href="#why">Why PRUM</a></li>
-						<li><a href="#join" class="prum-nav__cta">Join Us</a></li>
+						<li><a href="#join" class="prum-nav-cta">Join Us</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -37,7 +37,7 @@
 
 			<section class="banner style1 orient-left content-align-left image-position-right fullscreen prum-hero" aria-labelledby="hero-heading">
 				<div class="content">
-					<p class="prum-hero__eyebrow">Tabletop roleplaying community since 1987</p>
+					<p class="prum-hero-eyebrow">Tabletop roleplaying community since 1987</p>
 					<h1 id="hero-heading">Where Heroes Gather</h1>
 					<p class="major">A home for storytellers, dice rollers, and people who roll critical fails at the worst possible moments. New characters welcome.</p>
 					<ul class="actions stacked">
@@ -71,28 +71,28 @@
 					<p class="prum-section-lede">Pick the cadence that fits your week. All three are open to new players, and you do not need to commit to all of them.</p>
 					<div class="prum-cards">
 						<article class="prum-card">
-							<div class="prum-card__icon" aria-hidden="true">
+							<div class="prum-card-icon" aria-hidden="true">
 								<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polygon points="24,4 44,16 44,36 24,44 4,36 4,16"/><polyline points="4,16 24,28 44,16"/><line x1="24" y1="28" x2="24" y2="44"/></svg>
 							</div>
 							<h3>Weekly sessions</h3>
 							<p>Every Thursday from 6pm. Dungeons &amp; Dragons 5e, Pathfinder, Call of Cthulhu, and whatever your GM is running. All levels welcome.</p>
-							<p class="prum-card__meta">Thursdays &middot; 6&ndash;10pm &middot; Campus Centre</p>
+							<p class="prum-card-meta">Thursdays &middot; 6&ndash;10pm &middot; Campus Centre</p>
 						</article>
 						<article class="prum-card">
-							<div class="prum-card__icon" aria-hidden="true">
+							<div class="prum-card-icon" aria-hidden="true">
 								<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M6 38 L24 8 L42 38 Z"/><path d="M14 38 L24 22 L34 38"/><line x1="6" y1="38" x2="42" y2="38"/></svg>
 							</div>
 							<h3>Annual camps</h3>
 							<p>Two weekend camps per year in the Dandenongs. Bring a sleeping bag, leave with twenty new friends and a character who shouldn't have survived.</p>
-							<p class="prum-card__meta">Autumn &amp; Spring &middot; Healesville Retreat</p>
+							<p class="prum-card-meta">Autumn &amp; Spring &middot; Healesville Retreat</p>
 						</article>
 						<article class="prum-card">
-							<div class="prum-card__icon" aria-hidden="true">
+							<div class="prum-card-icon" aria-hidden="true">
 								<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M14 6 H34 V14 C34 22 30 28 24 28 C18 28 14 22 14 14 Z"/><path d="M14 10 H8 V14 C8 18 10 22 14 22"/><path d="M34 10 H40 V14 C40 18 38 22 34 22"/><line x1="24" y1="28" x2="24" y2="38"/><line x1="16" y1="42" x2="32" y2="42"/><line x1="20" y1="38" x2="28" y2="38"/></svg>
 							</div>
 							<h3>Inter-uni tournaments</h3>
 							<p>We send teams to the Melbourne Tabletop League and the One-Shot Open. No experience required. We will teach you the system before the round.</p>
-							<p class="prum-card__meta">Three events per year &middot; Melbourne</p>
+							<p class="prum-card-meta">Three events per year &middot; Melbourne</p>
 						</article>
 					</div>
 				</div>
@@ -105,89 +105,89 @@
 					<p class="prum-section-lede">Filter by what you actually want to play. Click any event for full briefing notes, location and RSVP details.</p>
 
 					<div class="prum-filter" role="group" aria-label="Filter events by category">
-						<button type="button" class="prum-filter__chip is-active" data-filter="all" aria-pressed="true">All <span class="prum-filter__count" data-count-for="all"></span></button>
-						<button type="button" class="prum-filter__chip" data-filter="weekly" aria-pressed="false">Weekly <span class="prum-filter__count" data-count-for="weekly"></span></button>
-						<button type="button" class="prum-filter__chip" data-filter="oneshot" aria-pressed="false">One-shots <span class="prum-filter__count" data-count-for="oneshot"></span></button>
-						<button type="button" class="prum-filter__chip" data-filter="camp" aria-pressed="false">Camps <span class="prum-filter__count" data-count-for="camp"></span></button>
-						<button type="button" class="prum-filter__chip" data-filter="tournament" aria-pressed="false">Tournaments <span class="prum-filter__count" data-count-for="tournament"></span></button>
+						<button type="button" class="prum-filter-chip is-active" data-filter="all" aria-pressed="true">All</button>
+						<button type="button" class="prum-filter-chip" data-filter="weekly" aria-pressed="false">Weekly</button>
+						<button type="button" class="prum-filter-chip" data-filter="oneshot" aria-pressed="false">One-shots</button>
+						<button type="button" class="prum-filter-chip" data-filter="camp" aria-pressed="false">Camps</button>
+						<button type="button" class="prum-filter-chip" data-filter="tournament" aria-pressed="false">Tournaments</button>
 					</div>
 
 					<div class="prum-event-grid" id="event-grid">
 						<article class="prum-event" data-category="oneshot" tabindex="0" data-event-id="ev-infernal">
-							<div class="prum-event__media">
+							<div class="prum-event-media">
 								<img src="images/event-infernal.webp" alt="Stylised illustration of a starship navigating a glowing space rift" loading="lazy" />
-								<span class="prum-event__tag">One-shot</span>
+								<span class="prum-event-tag">One-shot</span>
 							</div>
-							<div class="prum-event__body">
-								<p class="prum-event__date"><time datetime="2026-06-05T18:00">Thu 5 Jun &middot; 6pm</time></p>
+							<div class="prum-event-body">
+								<p class="prum-event-date"><time datetime="2026-06-05T18:00">Thu 5 Jun &middot; 6pm</time></p>
 								<h3>Infernal: The Wild Blue</h3>
 								<p>A one-night space-piracy adventure following Lady Blackbird and the crew of <em>The Owl</em>. Pre-gen characters provided.</p>
-								<p class="prum-event__meta">Campus Centre, Building 10</p>
+								<p class="prum-event-meta">Campus Centre, Building 10</p>
 							</div>
 						</article>
 
 						<article class="prum-event" data-category="camp" tabindex="0" data-event-id="ev-autumn-camp">
-							<div class="prum-event__media">
+							<div class="prum-event-media">
 								<img src="images/event-camp.webp" alt="A canvas tent at dusk in a misty forest clearing" loading="lazy" />
-								<span class="prum-event__tag">Camp</span>
+								<span class="prum-event-tag">Camp</span>
 							</div>
-							<div class="prum-event__body">
-								<p class="prum-event__date"><time datetime="2026-06-13">Fri 13 &ndash; Sun 15 Jun</time></p>
+							<div class="prum-event-body">
+								<p class="prum-event-date"><time datetime="2026-06-13">Fri 13 &ndash; Sun 15 Jun</time></p>
 								<h3>Autumn Camp 2026</h3>
 								<p>Three days, twelve Game Masters, one sleeping bag. Tables running 5e, Pathfinder, Mausritter and a homebrew Western.</p>
-								<p class="prum-event__meta">Healesville Retreat Centre</p>
+								<p class="prum-event-meta">Healesville Retreat Centre</p>
 							</div>
 						</article>
 
 						<article class="prum-event" data-category="weekly" tabindex="0" data-event-id="ev-weekly">
-							<div class="prum-event__media">
+							<div class="prum-event-media">
 								<img src="images/event-weekly.webp" alt="A close-up of polyhedral dice and a character sheet on a wooden table" loading="lazy" />
-								<span class="prum-event__tag">Weekly</span>
+								<span class="prum-event-tag">Weekly</span>
 							</div>
-							<div class="prum-event__body">
-								<p class="prum-event__date"><time datetime="2026-05-29T18:00">Every Thursday &middot; 6pm</time></p>
+							<div class="prum-event-body">
+								<p class="prum-event-date"><time datetime="2026-05-29T18:00">Every Thursday &middot; 6pm</time></p>
 								<h3>Open Tables Night</h3>
 								<p>Open tables across every active campaign. Drop in to a system you have never tried. We will pair you with a friendly group.</p>
-								<p class="prum-event__meta">Campus Centre &middot; Rooms 1.04 to 1.08</p>
+								<p class="prum-event-meta">Campus Centre &middot; Rooms 1.04 to 1.08</p>
 							</div>
 						</article>
 
 						<article class="prum-event" data-category="tournament" tabindex="0" data-event-id="ev-tournament">
-							<div class="prum-event__media">
+							<div class="prum-event-media">
 								<img src="images/event-tournament.webp" alt="A trophy and rolled dice on a velvet cloth under stage lighting" loading="lazy" />
-								<span class="prum-event__tag">Tournament</span>
+								<span class="prum-event-tag">Tournament</span>
 							</div>
-							<div class="prum-event__body">
-								<p class="prum-event__date"><time datetime="2026-07-19T10:00">Sat 19 Jul &middot; 10am</time></p>
+							<div class="prum-event-body">
+								<p class="prum-event-date"><time datetime="2026-07-19T10:00">Sat 19 Jul &middot; 10am</time></p>
 								<h3>Melbourne Tabletop League &middot; Round 2</h3>
 								<p>Four-player tournament round. Pre-gen characters, two-hour rounds, judged on storytelling and team play.</p>
-								<p class="prum-event__meta">RMIT Storey Hall</p>
+								<p class="prum-event-meta">RMIT Storey Hall</p>
 							</div>
 						</article>
 
 						<article class="prum-event" data-category="oneshot" tabindex="0" data-event-id="ev-gmworkshop">
-							<div class="prum-event__media">
+							<div class="prum-event-media">
 								<img src="images/event-gmworkshop.webp" alt="An open notebook with handwritten campaign notes beside a steaming cup of tea" loading="lazy" />
-								<span class="prum-event__tag">One-shot</span>
+								<span class="prum-event-tag">One-shot</span>
 							</div>
-							<div class="prum-event__body">
-								<p class="prum-event__date"><time datetime="2026-06-26T18:30">Thu 26 Jun &middot; 6:30pm</time></p>
+							<div class="prum-event-body">
+								<p class="prum-event-date"><time datetime="2026-06-26T18:30">Thu 26 Jun &middot; 6:30pm</time></p>
 								<h3>GM Workshop: First Session</h3>
 								<p>For anyone who has ever wanted to run a game. Hands-on workshop with three veteran DMs walking you through session zero.</p>
-								<p class="prum-event__meta">Building T, Room ST1</p>
+								<p class="prum-event-meta">Building T, Room ST1</p>
 							</div>
 						</article>
 
 						<article class="prum-event" data-category="weekly" tabindex="0" data-event-id="ev-pathfinder">
-							<div class="prum-event__media">
+							<div class="prum-event-media">
 								<img src="images/event-pathfinder.webp" alt="A hand-drawn world map weighted down by a small brass compass" loading="lazy" />
-								<span class="prum-event__tag">Weekly</span>
+								<span class="prum-event-tag">Weekly</span>
 							</div>
-							<div class="prum-event__body">
-								<p class="prum-event__date"><time datetime="2026-05-22T18:00">Every Thursday &middot; 6pm</time></p>
+							<div class="prum-event-body">
+								<p class="prum-event-date"><time datetime="2026-05-22T18:00">Every Thursday &middot; 6pm</time></p>
 								<h3>Pathfinder 2e Campaign</h3>
 								<p>Long-running Pathfinder 2e campaign, currently in chapter four of <em>The Bonewood</em>. Two open seats for new players this term.</p>
-								<p class="prum-event__meta">Campus Centre &middot; Room 1.02</p>
+								<p class="prum-event-meta">Campus Centre &middot; Room 1.02</p>
 							</div>
 						</article>
 					</div>
@@ -202,20 +202,20 @@
 					<h2 id="why-heading">A club that has been telling stories for 38 years</h2>
 					<div class="prum-stats">
 						<div class="prum-stat">
-							<span class="prum-stat__value">38</span>
-							<span class="prum-stat__label">Years running</span>
+							<span class="prum-stat-value">38</span>
+							<span class="prum-stat-label">Years running</span>
 						</div>
 						<div class="prum-stat">
-							<span class="prum-stat__value">200+</span>
-							<span class="prum-stat__label">Active members</span>
+							<span class="prum-stat-value">200+</span>
+							<span class="prum-stat-label">Active members</span>
 						</div>
 						<div class="prum-stat">
-							<span class="prum-stat__value">12</span>
-							<span class="prum-stat__label">Active campaigns</span>
+							<span class="prum-stat-value">12</span>
+							<span class="prum-stat-label">Active campaigns</span>
 						</div>
 						<div class="prum-stat">
-							<span class="prum-stat__value">Free</span>
-							<span class="prum-stat__label">First session</span>
+							<span class="prum-stat-value">Free</span>
+							<span class="prum-stat-label">First session</span>
 						</div>
 					</div>
 					<p class="prum-section-lede">Members get free dice on signup, access to our shared library of rulebooks, a dedicated Discord, and priority sign-up for camps.</p>
@@ -261,31 +261,31 @@
 
 			<footer class="wrapper style1 align-center prum-footer">
 				<div class="inner">
-					<p class="prum-footer__mark">PRUM &middot; People's Roleplaying Union of Mernone</p>
+					<p class="prum-footer-mark">PRUM &middot; People's Roleplaying Union of Mernone</p>
 					<ul class="icons">
 						<li><a href="#" class="icon brands style2 fa-discord" aria-label="Discord"><span class="label">Discord</span></a></li>
 						<li><a href="#" class="icon brands style2 fa-instagram" aria-label="Instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="#" class="icon brands style2 fa-facebook-f" aria-label="Facebook"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon style2 fa-envelope" aria-label="Email"><span class="label">Email</span></a></li>
 					</ul>
-					<p class="prum-footer__contact">hello@prum-club.example &middot; Campus Centre, VonKatLeeRes University, Clayton VIC 3168</p>
-					<p class="prum-footer__small">&copy; 2026 PRUM (fictional club for FIT1050 Assignment 3). Template <a href="https://html5up.net">Story by HTML5 UP</a>, CCA 3.0.</p>
+					<p class="prum-footer-contact">hello@prum-club.example &middot; Campus Centre, VonKatLeeRes University, Clayton VIC 3168</p>
+					<p class="prum-footer-small">&copy; 2026 PRUM (fictional club for FIT1050 Assignment 3). Template <a href="https://html5up.net">Story by HTML5 UP</a>, CCA 3.0.</p>
 				</div>
 			</footer>
 
 		</div>
 
 		<div class="prum-modal" id="event-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description" hidden>
-			<div class="prum-modal__backdrop" data-modal-close></div>
-			<div class="prum-modal__panel" role="document">
-				<button type="button" class="prum-modal__close" data-modal-close aria-label="Close event details">&times;</button>
-				<p class="prum-modal__tag" id="modal-tag"></p>
+			<div class="prum-modal-backdrop" data-modal-close></div>
+			<div class="prum-modal-panel" role="document">
+				<button type="button" class="prum-modal-close" data-modal-close aria-label="Close event details">&times;</button>
+				<p class="prum-modal-tag" id="modal-tag"></p>
 				<h2 id="modal-title">Event details</h2>
-				<p class="prum-modal__date" id="modal-date"></p>
-				<p class="prum-modal__location" id="modal-location"></p>
-				<div class="prum-modal__brief" id="modal-description"></div>
-				<dl class="prum-modal__facts" id="modal-facts"></dl>
-				<div class="prum-modal__actions">
+				<p class="prum-modal-date" id="modal-date"></p>
+				<p class="prum-modal-location" id="modal-location"></p>
+				<div class="prum-modal-brief" id="modal-description"></div>
+				<dl class="prum-modal-facts" id="modal-facts"></dl>
+				<div class="prum-modal-actions">
 					<a href="#join" class="button prum-btn-primary" data-modal-close>RSVP &amp; reserve a seat</a>
 					<button type="button" class="button prum-btn-secondary" data-modal-close>Back to events</button>
 				</div>
