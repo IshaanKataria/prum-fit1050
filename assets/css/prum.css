@@ -323,19 +323,22 @@ button.prum-btn-secondary {
 }
 
 .prum-filter-chip {
-	font-size: 0.92rem;
-	font-weight: 500;
-	color: var(--burgundy);
-	background: transparent;
-	border: 1.5px solid var(--line);
-	padding: 0.55rem 1.15rem;
-	border-radius: 999px;
+	font-size: 0.92rem !important;
+	font-weight: 500 !important;
+	color: var(--burgundy) !important;
+	background: transparent !important;
+	border: 1.5px solid var(--line) !important;
+	padding: 0.55rem 1.15rem !important;
+	border-radius: 999px !important;
 	cursor: pointer;
+	line-height: 1.4 !important;
+	height: auto !important;
+	box-shadow: none !important;
 }
 
 .prum-filter-chip:hover {
-	border-color: var(--burgundy);
-	color: var(--burgundy-deep);
+	border-color: var(--burgundy) !important;
+	color: var(--burgundy-deep) !important;
 }
 
 .prum-filter-chip:focus {
@@ -344,9 +347,9 @@ button.prum-btn-secondary {
 }
 
 .prum-filter-chip.is-active {
-	background: var(--burgundy);
-	color: var(--bg-card);
-	border-color: var(--burgundy);
+	background: var(--burgundy) !important;
+	color: var(--bg-card) !important;
+	border-color: var(--burgundy) !important;
 }
 
 .prum-event-grid {
