@@ -1,12 +1,7 @@
-/* prum.css
-   Custom theme for the PRUM homepage on top of Story by HTML5 UP.
-   Palette: deep burgundy + cream + gold.
-   Headings use Cormorant Garamond (serif), body uses Inter (sans-serif).
-*/
+/* prum.css — PRUM theme on top of Story by HTML5 UP
+   burgundy + cream + gold, Cormorant Garamond headings, Inter body */
 
-/* All the colours, fonts and spacing tokens live up here as CSS custom
-   properties so I only have to change them in one place if I want to
-   tweak the design later. */
+/* colour and font tokens — change here, update everywhere */
 :root {
 	--bg: #f5efe6;
 	--bg-card: #fbf6ec;
@@ -27,7 +22,7 @@
 	--nav-h: 72px;
 }
 
-/* Smooth in-page scrolling for the sticky nav anchor links. */
+/* smooth scroll for the nav anchors */
 html { scroll-behavior: smooth; }
 
 html, body {
@@ -697,5 +692,5 @@ button.prum-btn-secondary {
 	gap: 0.8rem;
 }
 
-/* Stop the page behind from scrolling while the modal is open. */
+/* lock background scroll while the modal is open */
 body.prum-modal-open { overflow: hidden; }
