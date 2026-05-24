@@ -1,24 +1,10 @@
-/* prum.js
-   JavaScript for the PRUM homepage.
-
-   This file adds two new features that work together:
-     1. Filter chips at the top of the events section that show or hide
-        event cards based on category.
-     2. A modal that opens with the full briefing for whichever event the
-        user clicks. ESC, the close button, and the backdrop all close it.
-
-   Both features read from one shared state object (activeFilter and
-   lastFocused) so the modal only opens for cards that are currently
-   visible, and focus returns to the card you came from after closing.
-
-   Focus-trap inside the modal follows the W3C ARIA Authoring Practices
-   pattern for modal dialogs (https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
-*/
+// prum.js — filter chips for the events section + modal that opens with the
+// full briefing when a card is clicked. The two share state so the modal only
+// opens for cards currently visible after filtering.
 
 'use strict';
 
-// Each event card has data-event-id. This object holds the full briefing
-// that gets shown inside the modal when a card is clicked.
+// briefing data for each event card, keyed by data-event-id
 const eventDetails = {
 	'ev-infernal': {
 		tag: 'One-shot',
@@ -94,7 +80,7 @@ const eventDetails = {
 	}
 };
 
-// Grab the DOM elements once instead of querying them inside every handler.
+// grab everything once
 const nav = document.querySelector('.prum-nav');
 const filterButtons = document.querySelectorAll('.prum-filter-chip');
 const eventCards = document.querySelectorAll('.prum-event');
@@ -107,18 +93,13 @@ const modalLocation = document.getElementById('modal-location');
 const modalDescription = document.getElementById('modal-description');
 const modalFacts = document.getElementById('modal-facts');
 
-// Shared state that both the filter and the modal read from.
-// activeFilter remembers which chip is currently pressed.
-// lastFocused remembers which card opened the modal so we can return
-// focus there on close (so keyboard users do not jump back to the top).
-const state = {
-	activeFilter: 'all',
-	lastFocused: null
-};
+// shared state for filter + modal. lastFocused lets us send focus back
+// to the card you came from when the modal closes.
+let activeFilter = 'all';
+let lastFocused = null;
 
 
-// Nav. Add a class when the page has scrolled a bit so the nav can
-// get a stronger background. CSS handles the actual styling.
+// add a class to the nav once the page scrolls down a bit
 function handleNavScroll() {
 	if (window.scrollY > 16) {
 		nav.classList.add('is-scrolled');
@@ -130,30 +111,26 @@ window.addEventListener('scroll', handleNavScroll);
 handleNavScroll();
 
 
-// Filter logic. Each chip has a data-filter attribute. When clicked we
-// hide every card whose data-category does not match (or show all if
-// the user picked the All chip).
+// hide every event card whose category doesn't match the chosen filter
 function applyFilter(filter) {
-	state.activeFilter = filter;
+	activeFilter = filter;
 	let visibleCount = 0;
 
 	eventCards.forEach(card => {
-		const category = card.getAttribute('data-category');
-		const shouldShow = (filter === 'all') || (category === filter);
-		card.hidden = !shouldShow;
-		if (shouldShow) visibleCount++;
+		const cat = card.getAttribute('data-category');
+		const show = filter === 'all' || cat === filter;
+		card.hidden = !show;
+		if (show) visibleCount++;
 	});
 
-	// Update which chip looks active. aria-pressed lets a screen reader
-	// announce which filter is currently on.
+	// mark the active chip (aria-pressed for screen readers)
 	filterButtons.forEach(btn => {
 		const isActive = btn.getAttribute('data-filter') === filter;
 		btn.classList.toggle('is-active', isActive);
 		btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
 	});
 
-	// Show the empty state message if nothing matched.
-	emptyState.hidden = (visibleCount !== 0);
+	emptyState.hidden = visibleCount !== 0;
 }
 
 filterButtons.forEach(btn => {
@@ -163,14 +140,13 @@ filterButtons.forEach(btn => {
 });
 
 
-// Modal logic. Replace the children of the modal with the details for
-// the event that was clicked, then make the modal visible.
+// open the modal with the details for the clicked card
 function openModal(card) {
 	const id = card.getAttribute('data-event-id');
 	const details = eventDetails[id];
 	if (!details) return;
 
-	state.lastFocused = card;
+	lastFocused = card;
 
 	modalTag.textContent = details.tag;
 	modalTitle.textContent = card.querySelector('h3').textContent;
@@ -178,8 +154,7 @@ function openModal(card) {
 	modalLocation.textContent = details.location;
 	modalDescription.textContent = details.brief;
 
-	// Rebuild the definition list with the event's facts.
-	// Using textContent (not innerHTML) so the strings can't inject markup.
+	// rebuild the dl from the facts map
 	modalFacts.textContent = '';
 	for (const key in details.facts) {
 		const dt = document.createElement('dt');
@@ -192,8 +167,6 @@ function openModal(card) {
 
 	modal.hidden = false;
 	document.body.classList.add('prum-modal-open');
-
-	// Move focus into the modal so keyboard users land on the close button.
 	modal.querySelector('.prum-modal-close').focus();
 }
 
@@ -201,13 +174,11 @@ function closeModal() {
 	if (modal.hidden) return;
 	modal.hidden = true;
 	document.body.classList.remove('prum-modal-open');
-	// Send focus back to the card that opened the modal.
-	if (state.lastFocused) state.lastFocused.focus();
-	state.lastFocused = null;
+	if (lastFocused) lastFocused.focus();
+	lastFocused = null;
 }
 
-// Cards open the modal on click, or on Enter/Space (because the cards
-// are not real <button>s, we have to handle the keyboard ourselves).
+// cards open on click + Enter/Space (since they're <article> not <button>)
 eventCards.forEach(card => {
 	card.addEventListener('click', () => openModal(card));
 	card.addEventListener('keydown', e => {
@@ -218,21 +189,19 @@ eventCards.forEach(card => {
 	});
 });
 
-// Any element with data-modal-close inside the modal will close it.
+// anything with data-modal-close closes the modal
 document.querySelectorAll('[data-modal-close]').forEach(el => {
 	el.addEventListener('click', closeModal);
 });
 
-// ESC anywhere on the page closes the modal.
+// ESC closes the modal too
 document.addEventListener('keydown', e => {
 	if (e.key === 'Escape' && !modal.hidden) closeModal();
 });
 
 
-// Focus trap inside the modal.
-// While the modal is open, Tab and Shift+Tab should cycle through the
-// focusable elements inside it instead of escaping to the page behind.
-// Pattern from the W3C ARIA Authoring Practices guide for modal dialogs.
+// focus trap: keep Tab cycling inside the modal while it's open
+// (pattern from MDN / W3C docs on modal dialogs)
 document.addEventListener('keydown', e => {
 	if (e.key !== 'Tab' || modal.hidden) return;
 
@@ -252,5 +221,5 @@ document.addEventListener('keydown', e => {
 });
 
 
-// Start with all events shown.
+// start with everything visible
 applyFilter('all');
