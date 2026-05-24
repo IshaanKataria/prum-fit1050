@@ -69,7 +69,7 @@ a:hover { color: var(--burgundy-hover); }
 }
 
 
-/* ---------- top navigation ---------- */
+/* top navigation */
 
 .prum-nav {
 	position: fixed;
@@ -162,7 +162,7 @@ a:hover { color: var(--burgundy-hover); }
 }
 
 
-/* ---------- hero ---------- */
+/* hero */
 
 .prum-hero { padding-top: var(--nav-h); background: var(--burgundy-deep) !important; }
 
@@ -194,7 +194,7 @@ a:hover { color: var(--burgundy-hover); }
 }
 
 
-/* ---------- shared bits ---------- */
+/* shared bits */
 
 .prum-eyebrow {
 	display: inline-block;
@@ -214,7 +214,7 @@ a:hover { color: var(--burgundy-hover); }
 }
 
 
-/* ---------- about (spotlight section) ---------- */
+/* about (spotlight section) */
 
 .prum-about { min-height: 68vh; }
 .prum-about .content { padding: 0 4rem !important; }
@@ -223,7 +223,7 @@ a:hover { color: var(--burgundy-hover); }
 .prum-about .image img { min-height: 68vh; }
 
 
-/* ---------- buttons ---------- */
+/* buttons */
 
 .button.prum-btn-primary,
 button.prum-btn-primary {
@@ -268,7 +268,7 @@ button.prum-btn-secondary {
 }
 
 
-/* ---------- "three ways to roll" activity cards ---------- */
+/* "three ways to roll" activity cards */
 
 .prum-cards {
 	display: grid;
@@ -312,7 +312,7 @@ button.prum-btn-secondary {
 }
 
 
-/* ---------- events: filter chips and grid ---------- */
+/* events: filter chips and grid */
 
 .prum-filter {
 	display: flex;
@@ -449,7 +449,7 @@ button.prum-btn-secondary {
 }
 
 
-/* ---------- "why prum" section, dark band ---------- */
+/* "why prum" section, dark band */
 
 #wrapper > .wrapper.style1.prum-why {
 	background: var(--burgundy-deep) !important;
@@ -498,7 +498,7 @@ button.prum-btn-secondary {
 }
 
 
-/* ---------- join form ---------- */
+/* join form */
 
 .prum-join .inner.medium { max-width: 720px !important; }
 
@@ -529,7 +529,7 @@ button.prum-btn-secondary {
 .prum-form .actions { justify-content: center; }
 
 
-/* ---------- footer ---------- */
+/* footer */
 
 .prum-footer {
 	background: var(--burgundy-deep) !important;
@@ -571,7 +571,7 @@ button.prum-btn-secondary {
 }
 
 
-/* ---------- modal ---------- */
+/* modal */
 
 .prum-modal {
 	position: fixed;
